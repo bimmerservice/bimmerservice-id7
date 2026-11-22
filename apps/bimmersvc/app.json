@@ -1,0 +1,41 @@
+
+{
+  "id": "bimmersvc",
+  "title": "BimmerService",
+  "description": "BimmerService Digital Cockpit",
+  "version": "0.1.0",
+  "vendor": "BimmerService",
+  "loggingId": "BSV1",
+  "iconGlyph": "rpm",
+  "mguHmi": ["ID7"],
+  "signals": {
+    "de.bmw.infotainment.vehicle.CDS": {
+      "statusEngineSpeed2": "rs"
+    },
+    "de.bmw.infotainment.vehicle.Vehicle2": {
+      "statusCarSpeed2": "rs"
+    }
+  },
+  "screens": [
+    {
+      "name": "MAIN",
+      "kind": "canvas",
+      "title": "Digital Cockpit",
+      "buttons": [
+        ["BTN_SETTINGS", "Settings"]
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "key": "theme",
+      "label": "Color Theme",
+      "type": "choice",
+      "default": "m_red",
+      "options": [
+        ["m_red", "M Red"],
+        ["ice", "Ice White"]
+      ]
+    }
+  ]
+}
