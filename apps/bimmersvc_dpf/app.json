@@ -1,0 +1,55 @@
+{
+  "id": "bimmersvc_dpf",
+  "title": "BimmerService DPF",
+  "description": "BMW DPF Monitor",
+  "version": "0.1.1",
+  "vendor": "BimmerService",
+  "loggingId": "BSDP",
+  "iconGlyph": "engine",
+  "mguHmi": [
+    "ID7",
+    "ID8"
+  ],
+  "requires": {
+    "idrive7-renderd": "2.1.18",
+    "mgu-inputgate": "1.1.0"
+  },
+  "screens": [
+    {
+      "name": "MAIN",
+      "kind": "canvas",
+      "title": "BS DPF Monitor",
+      "buttons": [
+        [
+          "BTN_PAGE",
+          "DPF Monitor"
+        ]
+      ]
+    }
+  ],
+  "settings": [
+    {
+      "key": "demo",
+      "label": "Demo data",
+      "type": "bool",
+      "default": false
+    },
+    {
+      "key": "probeDde",
+      "label": "DDE 연결 테스트",
+      "type": "bool",
+      "default": false
+    }
+  ],
+  "signals": {
+    "com.harman.infotainment.systemfunctions.tasu.tasu.InternalTasu": {
+      "_instances": "SystemFunctionsInternalTasuInst1",
+      "_methods": [
+        "sendTasuRequest"
+      ],
+      "_broadcasts": [
+        "sendTasuResponse"
+      ]
+    }
+  }
+}
