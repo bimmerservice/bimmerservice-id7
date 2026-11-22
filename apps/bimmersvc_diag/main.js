@@ -94,7 +94,7 @@ const ecuName = (a) => {
 mgu.run({
     async start(ctx) {
         const { ui, settings, log } = ctx;
-        const diag = await new Diag(ctx.signals, log).init();
+        const diag = new Diag(ctx.signals, log);
 
         /* ---------- state ---------- */
         const FILE = path.join(ctx.dataDir, 'last_scan.json');
@@ -456,5 +456,14 @@ mgu.run({
         settings.onChange(() => changed());
         if (scan) ui.text('BTN_SCAN', 'Scan again');
         render(true).then(() => log.info('first frame done')).catch((e) => log.warn('first render: ' + e));
+
+        // Initialize diagnostic transport without blocking the first screen.
+        diag.init().then(() => {
+            log.info('TASU initialization finished');
+            changed();
+        }).catch((e) => {
+            log.warn('TASU initialization failed: ' + e);
+            changed();
+        });
     },
 });

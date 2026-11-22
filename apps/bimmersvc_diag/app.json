@@ -1,11 +1,10 @@
 {
   "id": "bimmersvc_diag",
-  "title": "BimmerService",
+  "title": "BimmerService Diagnostics",
   "description": "BimmerService BMW Diagnostics",
-  "version": "0.4.0",
+  "version": "0.4.1",
   "vendor": "BimmerService",
   "loggingId": "BSD1",
-  "iconGlyph": "engine",
   "mguHmi": [
     "ID7",
     "ID8"
